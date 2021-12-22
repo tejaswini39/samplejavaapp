@@ -5,14 +5,14 @@ pipeline {
 	   steps {
                 echo 'compiling..'
 		git url: 'https://github.com/tejaswini39/samplejavaapp.git'
-		sh script: '/opt/maven/mvn compile'
+		sh script: '/opt/maven/bin/mvn compile'
            }
         }
         
         stage('unit-test') {
 	   steps {
                 echo 'unittest..'
-	        sh script: '/opt/apache-maven-3.6.3/bin/mvn test'
+	        sh script: '/opt/maven/bin/mvn test'
                  }
 	   post {
                success {
@@ -24,7 +24,7 @@ pipeline {
         stage('package') {
 	   steps {
                 echo 'package..'
-		sh script: '/opt/apache-maven-3.6.3/bin/mvn package'	
+		sh script: '/opt/maven/bin/mvn package'	
            }		
         }
     }
